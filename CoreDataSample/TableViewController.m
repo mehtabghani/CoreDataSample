@@ -9,6 +9,9 @@
 #import "TableViewController.h"
 #import "AppDelegate.h"
 #import "Contact.h"
+#import "CoreDataManager.h"
+#import "PersistenceHelper.h"
+#import "CoreDataContact.h"
 
 @interface TableViewController (){
 
@@ -45,34 +48,31 @@
     names = [NSMutableArray new];
     phoneNo = [NSMutableArray new];
     appdelegate = [[UIApplication sharedApplication] delegate];
-    managedObjectContext = [appdelegate managedObjectContext];
+    managedObjectContext = [[CoreDataManager sharedManager] managedObjectContext];
 }
 
 - (void) setUpData {
-
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Contact"];
     
-    NSError *error = nil;
-    NSArray *results = [managedObjectContext executeFetchRequest:request error:&error];
-    if (!results) {
-        NSLog(@"Error fetching Employee objects: %@\n%@", [error localizedDescription], [error userInfo]);
-        abort();
-    }
+    NSArray *results = [PersistenceHelper getDataOfEntity:ContactEntity context:managedObjectContext];
     
-    for (Contact *contact in results) {
+    for (CoreDataContact *contact in results) {
         [names addObject:contact.name];
-        [phoneNo addObject:contact.phone_no];
+        [phoneNo addObject:contact.phoneNO];
     }
-
 }
 
 - (IBAction)onAddContact:(id)sender {
-   Contact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"Contact" inManagedObjectContext:managedObjectContext];
+    
+    Contact *contact = [Contact new];
     contact.name = @"Mehtab";
     contact.phone_no = @"03432179094";
-    NSError *error;
-    [managedObjectContext save:&error];
-}
+    
+    [names addObject:contact.name];
+    [phoneNo addObject:contact.phone_no];
+    
+    [PersistenceHelper save:contact entity:ContactEntity context:managedObjectContext];
+    [self.tableView reloadData];
+ }
 
 #pragma mark - Table view data source
 

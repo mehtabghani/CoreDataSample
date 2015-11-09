@@ -16,6 +16,9 @@
 		1B982DE11BF0AECA0070E01D /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B982DE01BF0AECA0070E01D /* TableViewController.m */; };
 		1B982DE41BF0AF4B0070E01D /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B982DE31BF0AF4B0070E01D /* Contact.m */; };
 		1B982DEC1BF0B0990070E01D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B982DEA1BF0B0990070E01D /* Model.xcdatamodeld */; };
+		1B982DF01BF0E19E0070E01D /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B982DEF1BF0E19E0070E01D /* CoreDataManager.m */; };
+		1B982DF41BF0E59C0070E01D /* PersistenceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B982DF31BF0E59C0070E01D /* PersistenceHelper.m */; };
+		1B982DF81BF0EEB70070E01D /* CoreDataContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B982DF71BF0EEB70070E01D /* CoreDataContact.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,12 @@
 		1B982DE21BF0AF4B0070E01D /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
 		1B982DE31BF0AF4B0070E01D /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		1B982DEB1BF0B0990070E01D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		1B982DEE1BF0E19E0070E01D /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		1B982DEF1BF0E19E0070E01D /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
+		1B982DF21BF0E59C0070E01D /* PersistenceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistenceHelper.h; sourceTree = "<group>"; };
+		1B982DF31BF0E59C0070E01D /* PersistenceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistenceHelper.m; sourceTree = "<group>"; };
+		1B982DF61BF0EEB70070E01D /* CoreDataContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataContact.h; sourceTree = "<group>"; };
+		1B982DF71BF0EEB70070E01D /* CoreDataContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataContact.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +95,8 @@
 		1B982DB01BF0AB610070E01D /* CoreDataSample */ = {
 			isa = PBXGroup;
 			children = (
+				1B982DF11BF0E5740070E01D /* Helper */,
+				1B982DED1BF0E17C0070E01D /* Manager */,
 				1B982DB51BF0AB610070E01D /* AppDelegate.h */,
 				1B982DB61BF0AB610070E01D /* AppDelegate.m */,
 				1B982DC11BF0AB620070E01D /* Images.xcassets */,
@@ -129,10 +140,38 @@
 		1B982DDE1BF0AECA0070E01D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1B982DF51BF0EEA70070E01D /* CoreDataModel */,
 				1B982DE21BF0AF4B0070E01D /* Contact.h */,
 				1B982DE31BF0AF4B0070E01D /* Contact.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1B982DED1BF0E17C0070E01D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				1B982DEE1BF0E19E0070E01D /* CoreDataManager.h */,
+				1B982DEF1BF0E19E0070E01D /* CoreDataManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		1B982DF11BF0E5740070E01D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				1B982DF21BF0E59C0070E01D /* PersistenceHelper.h */,
+				1B982DF31BF0E59C0070E01D /* PersistenceHelper.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		1B982DF51BF0EEA70070E01D /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				1B982DF61BF0EEB70070E01D /* CoreDataContact.h */,
+				1B982DF71BF0EEB70070E01D /* CoreDataContact.m */,
+			);
+			path = CoreDataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,7 +274,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B982DF01BF0E19E0070E01D /* CoreDataManager.m in Sources */,
+				1B982DF41BF0E59C0070E01D /* PersistenceHelper.m in Sources */,
 				1B982DB71BF0AB610070E01D /* AppDelegate.m in Sources */,
+				1B982DF81BF0EEB70070E01D /* CoreDataContact.m in Sources */,
 				1B982DE41BF0AF4B0070E01D /* Contact.m in Sources */,
 				1B982DEC1BF0B0990070E01D /* Model.xcdatamodeld in Sources */,
 				1B982DB41BF0AB610070E01D /* main.m in Sources */,

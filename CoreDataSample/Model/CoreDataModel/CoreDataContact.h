@@ -1,5 +1,5 @@
 //
-//  Contact.h
+//  CoreDataContact.h
 //  CoreDataSample
 //
 //  Created by mehtab on 11/9/15.
@@ -10,9 +10,9 @@
 #import <CoreData/CoreData.h>
 
 
-@interface Contact : NSObject
+@interface CoreDataContact : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * phone_no;
+@property (nonatomic, retain) NSString * phoneNO;
 
 @end
